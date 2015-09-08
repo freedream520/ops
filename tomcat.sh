@@ -1,12 +1,9 @@
 #!/bin/bash
 
-
-# *************************************************************************
 # func:自动监控tomcat脚本并且执行重启操作
-# Author: snailwalker
-# Mail: qiyu1001@gmail.com
-# Created Time: 2015-09-08
-# *************************************************************************
+# author:snailwalker
+# date:08/31/2015
+# DEFINE
 
 # 获取tomcat进程ID
 TomcatID=$(ps -ef |grep tomcat |grep -w 'local\/tomcat7\/conf'|grep -v 'grep'|awk '{print $2}')
@@ -16,7 +13,7 @@ StartTomcat=/usr/local/tomcat7/bin/startup.sh
 TomcatCache=/usr/local/tomcat7/work
 
 # 定义要监控的页面地址
-WebUrl=http://####
+WebUrl=http://item.bizpartner.cn/item/sys/sysitemHomePage
 
 # 日志输出
 GetPageInfo=/dev/null
@@ -35,7 +32,7 @@ Monitor()
         echo "[error]tomcat页面出错,请注意......状态码为$TomcatServiceCode,错误日志已输出到$GetPageInfo"
         echo "[error]页面访问出错,开始重启tomcat"
         kill -9 $TomcatID  # 杀掉原tomcat进程
-        sleep 3
+        sleep 5
         rm -rf $TomcatCache # 清理tomcat缓存
         $StartTomcat
     fi
