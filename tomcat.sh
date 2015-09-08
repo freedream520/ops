@@ -13,10 +13,10 @@ TomcatID=$(ps -ef |grep tomcat |grep -w 'local\/tomcat7\/conf'|grep -v 'grep'|aw
 
 # tomcat启动程序(这里注意tomcat实际安装的路径)
 StartTomcat=/usr/local/tomcat7/bin/startup.sh
-TomcatCache=/usr/apache-tomcat-5.5.23/work
+TomcatCache=/usr/local/tomcat7/work
 
 # 定义要监控的页面地址
-WebUrl=http://item.bizpartner.cn/item/sys/sysitemHomePage
+WebUrl=http://####
 
 # 日志输出
 GetPageInfo=/dev/null
